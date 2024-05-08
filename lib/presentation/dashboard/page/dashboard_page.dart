@@ -47,7 +47,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     provider.clearAllResponses();
                         },
                         icon: Icon(
-                         Icons.delete, color: Colors.white
+                         Icons.delete, color: AppColor.primary,
                          )),  
                   actions: [
                     IconButton(
