@@ -39,7 +39,10 @@ class _DashboardPageState extends State<DashboardPage> {
           builder: (context, provider, child) {
             return Scaffold(
                 backgroundColor: Colors.grey[200],
-                floatingActionButton: FloatingActionButton(
+            
+                appBar: AppBar(
+                  surfaceTintColor: Colors.transparent,
+                  leading:  FloatingActionButton(
                   onPressed: () {
                     provider.clearAllResponses();
                   },
@@ -52,20 +55,6 @@ class _DashboardPageState extends State<DashboardPage> {
                           topLeft: Radius.circular(100))),
                   child: const Icon(Icons.delete, color: Colors.white),
                 ),
-                appBar: AppBar(
-                  surfaceTintColor: Colors.transparent,
-                  leading: IconButton(
-                    color: AppColor.primary,
-                    onPressed: () {
-                      if (provider.isSearch) {
-                        provider.toggleSearch();
-                        return;
-                      }
-
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.arrow_back, color: AppColor.primary),
-                  ),
                   actions: [
                     IconButton(
                         onPressed: () {
