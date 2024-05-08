@@ -142,7 +142,7 @@ class _DashboardPageState extends State<DashboardPage> {
         child: Text('No Http Activities'),
       );
     } else {
-      return ListView.builder(
+      return Expanded(child:ListView.builder(
         itemCount: provider.isSearch
             ? provider.activityFromSearch.length
             : provider.getAllResponses.length,
@@ -164,7 +164,7 @@ class _DashboardPageState extends State<DashboardPage> {
             child: ItemResponseWidget(data: data),
           );
         },
-      );
+      ));
     }
   }
 
