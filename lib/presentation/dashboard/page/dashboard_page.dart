@@ -4,6 +4,7 @@ import 'package:dio_request_inspector/presentation/dashboard/widget/item_respons
 import 'package:dio_request_inspector/presentation/dashboard/widget/password_protection_dialog.dart';
 import 'package:dio_request_inspector/presentation/detail/page/detail_page.dart';
 import 'package:dio_request_inspector/presentation/resources/color.dart';
+import 'package:dio_request_inspector/data/models/http_activity.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
