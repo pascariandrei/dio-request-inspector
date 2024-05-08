@@ -42,19 +42,13 @@ class _DashboardPageState extends State<DashboardPage> {
             
                 appBar: AppBar(
                   surfaceTintColor: Colors.transparent,
-                  leading:  FloatingActionButton(
-                  onPressed: () {
+                  leading:  IconButton(
+                        onPressed: () {
                     provider.clearAllResponses();
-                  },
-                  backgroundColor: Colors.red,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          bottomLeft: Radius.circular(100),
-                          bottomRight: Radius.circular(100),
-                          topLeft: Radius.circular(100))),
-                  child: const Icon(Icons.delete, color: Colors.white),
-                ),
+                        },
+                        icon: Icon(
+                         Icons.delete, color: Colors.white
+                         )),  
                   actions: [
                     IconButton(
                         onPressed: () {
@@ -131,7 +125,7 @@ class _DashboardPageState extends State<DashboardPage> {
         child: Text('No Http Activities'),
       );
     } else {
-      return Expanded(child:ListView.builder(
+      return ListView.builder(
         itemCount: provider.isSearch
             ? provider.activityFromSearch.length
             : provider.getAllResponses.length,
@@ -153,7 +147,7 @@ class _DashboardPageState extends State<DashboardPage> {
             child: ItemResponseWidget(data: data),
           );
         },
-      ));
+      );
     }
   }
 
