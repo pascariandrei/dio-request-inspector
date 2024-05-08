@@ -8,8 +8,9 @@ class DetailPage extends StatelessWidget {
   static const routeName = '/dio-request-inspector/detail';
 
   final HttpActivity data;
+  final VoidCallback onBackTap;
 
-  const DetailPage({Key? key, required this.data}) : super(key: key);
+  const DetailPage({Key? key, required this.data, required this.onBackTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +63,7 @@ class DetailPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(Icons.warning, color: AppColor.primary, size: 50),
-                Text('No error found',
-                    style: TextStyle(color: AppColor.primary)),
+                Text('No error found', style: TextStyle(color: AppColor.primary)),
               ],
             ),
           )
@@ -76,9 +76,7 @@ class DetailPage extends StatelessWidget {
   }
 
   Widget _requestWidget(List<Widget> requests) {
-    return SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(children: requests));
+    return SingleChildScrollView(physics: const BouncingScrollPhysics(), child: Column(children: requests));
   }
 
   Widget _overviewWidget(List<Widget> overviews) {
@@ -101,47 +99,47 @@ class DetailPage extends StatelessWidget {
       backgroundColor: AppColor.primary,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20),
-              bottomLeft: Radius.circular(100),
-              bottomRight: Radius.circular(100),
-              topLeft: Radius.circular(100))),
+              topRight: Radius.circular(20), bottomLeft: Radius.circular(100), bottomRight: Radius.circular(100), topLeft: Radius.circular(100))),
       child: const Icon(Icons.share, color: Colors.white),
     );
   }
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
-        title:Text('Detail Activity', style: TextStyle(color: AppColor.primary)),
-        elevation: 3,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back, color: AppColor.primary),
-        ),
-        bottom: TabBar(
-          tabs: [
-            Tab(
-              text: 'Overview',
-              icon: Icon(
-                Icons.info,
-                color: AppColor.primary,
-              ),
+      backgroundColor: AppColor.white,
+      title: const Text('Detail Activity', style: TextStyle(color: Colors.black)),
+      elevation: 3,
+      leading: IconButton(
+        onPressed: () {
+          onBackTap();
+        },
+        icon: const Icon(Icons.arrow_back, color: Colors.black),
+      ),
+      bottom: const TabBar(
+        indicatorColor: Colors.blueGrey,
+        labelColor: Colors.black,
+        tabs: [
+          Tab(
+            text: 'Overview',
+            icon: Icon(
+              Icons.info,
+              color: Colors.black,
             ),
-            Tab(
-              text: 'Request',
-              icon: Icon(Icons.arrow_upward, color: AppColor.primary),
-            ),
-            Tab(
-              text: 'Response',
-              icon: Icon(Icons.arrow_downward, color: AppColor.primary),
-            ),
-            Tab(
-              text: 'Error',
-              icon: Icon(Icons.warning, color: AppColor.primary),
-            ),
-          ],
-        ),
-        backgroundColor: AppColor.white);
+          ),
+          Tab(
+            text: 'Request',
+            icon: Icon(Icons.arrow_upward, color: Colors.black),
+          ),
+          Tab(
+            text: 'Response',
+            icon: Icon(Icons.arrow_downward, color: Colors.black),
+          ),
+          Tab(
+            text: 'Error',
+            icon: Icon(Icons.warning, color: Colors.black),
+          ),
+        ],
+      ),
+    );
   }
 }
