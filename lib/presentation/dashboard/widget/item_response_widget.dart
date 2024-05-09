@@ -23,7 +23,7 @@ class ItemResponseWidget extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(12),
         ),
         color: Colors.white,
         child: Padding(
