@@ -59,8 +59,7 @@ class Interceptor extends InterceptorsWrapper {
       }
     }
     handler.next(err);
-    super.onError(err, handler);
-  }
+   }
 
   void _showSnackBar(RequestOptions options) {
     if (!showFloating) {
